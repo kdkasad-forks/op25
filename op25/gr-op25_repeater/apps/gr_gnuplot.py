@@ -35,7 +35,7 @@ _def_debug = 0
 _def_sps = 5
 _def_sps_mult = 2
 
-GNUPLOT = '/usr/bin/gnuplot'
+GNUPLOT = 'gnuplot'
 
 Y_AVG    = 0.03
 FFT_AVG  = 0.05
