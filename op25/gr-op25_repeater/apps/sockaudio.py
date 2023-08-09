@@ -485,7 +485,7 @@ class socket_audio(object):
 
     def scale(self, data):  # crude amplitude scaler (volume) for S16_LE samples
         arr = np.array(np.frombuffer(data, dtype=np.int16), dtype=np.float32)
-        result = np.zeros(len(arr), dtype=np.int16)
+        result = np.zeros(len(arr), dtype=np.float32)
         arr = np.clip(arr*self.audio_gain, -32767, 32766, out=result)
         return result.tobytes('C')
 
