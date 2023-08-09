@@ -276,7 +276,10 @@ class pa_sound(object):
     def __init__(self):
         self.out = c_void_p(None)
         self.error = c_int(0)
-        self.libpa = cdll.LoadLibrary("libpulse-simple.so.0")
+        if sys.platform.startswith("darwin"):
+            self.libpa = cdll.LoadLibrary("libpulse-simple.0.dylib")
+        else:
+            self.libpa = cdll.LoadLibrary("libpulse-simple.so.0")
        	self.libpa.strerror.restype = c_char_p
         self.ss = _struct_pa_sample_spec(PA_SAMPLE_S16LE, 8000, 2)
 
